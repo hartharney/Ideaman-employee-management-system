@@ -26,12 +26,13 @@
 // using remote cockroach db
 
 import { Sequelize } from "sequelize-cockroachdb";
+import dotenv from 'dotenv'
+dotenv.config();
 
-// const { DATABASE_URL } = process.env;
-const DATABASE_URL = "postgresql://hart_harney:Rh7Lom7IeISw58FKMfG9eQ@floaty-hacker-1979.j77.cockroachlabs.cloud:26257/idems?sslmode=verify-full";
+const { DATABASE_URL } = process.env;
 
+console.log("database", DATABASE_URL);
 if (!DATABASE_URL) {
-    console.log(DATABASE_URL)
   throw new Error('DATABASE_URL environment variable is not defined');
 }
 
